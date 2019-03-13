@@ -157,6 +157,12 @@ def solve_for_ECS(lambda_l=1.13,lambda_o=1.11,alpha_l=1.62,alpha_o=2.39,Cl=1.,Co
     DoublingThenConstant.plot_ECS(color=colors("double_then_constant"),label="double_then_constant")
     plt.legend()
     
-    
-                        
+def Tavg(lambda_l=1.13,lambda_o=1.11,alpha_l=1.62,alpha_o=2.39,Cl=1.,Co=12.,Cdo=244.,fl=0.33,gamma_o=2.04,Fl0=7.6,Fo0=6.5):
+    OnePct=SimpleModel("1pctCO2",lambda_l=lambda_l,lambda_o=lambda_o,alpha_l=alpha_l,alpha_o=alpha_o,Cl=Cl,Co=Co,Cdo=Cdo,fl=fl,gamma_o=gamma_o,Fl0=Fl0,Fo0=Fo0)
+    DoublingThenConstant=SimpleModel("double_then_constant",lambda_l=lambda_l,lambda_o=lambda_o,alpha_l=alpha_l,alpha_o=alpha_o,Cl=Cl,Co=Co,Cdo=Cdo,fl=fl,gamma_o=gamma_o,Fl0=Fl0,Fo0=Fo0)
+    Abrupt=SimpleModel('abrupt4xCO2',lambda_l=lambda_l,lambda_o=lambda_o,alpha_l=alpha_l,alpha_o=alpha_o,Cl=Cl,Co=Co,Cdo=Cdo,fl=fl,gamma_o=gamma_o,Fl0=Fl0,Fo0=Fo0)    
+    OnePct.plot_T(ls=":",label="1pctCO2")
+    Abrupt.plot_T(ls="--",label="abrupt4xCO2")
+    DoublingThenConstant.plot_ECS(ls="-",label="double_then_constant")
+    plt.legend()
 #(lambda_l=1.13,lambda_o=1.11,alpha_l=1.62,alpha_o=2.39,Cl=1.,Co=12.,Cdo=244.,fl=0.33,gamma_o=2.04,Fl0=7.6,Fo0=6.5):
